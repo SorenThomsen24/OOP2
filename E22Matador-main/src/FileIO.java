@@ -60,8 +60,24 @@ public class FileIO {
         return values;
     }
 
+    public String[] readChanceData(){
+        String[] values = new String[3];
+        String header;
+        try {
+            Scanner scanner = new Scanner(new File("data/chanceCard.csv"));
+            header = scanner.nextLine();
+            for (int i = 0; i < values.length; i++){
+                String s = scanner.nextLine();
+                values[i] = s;
+            }
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+        return values;
+        }
+    }
 
-}
+
 
 
 
